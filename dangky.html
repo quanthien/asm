@@ -1,0 +1,128 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <style>
+        body {
+            background: rgb(219, 178, 144);
+        }
+
+        #frmDangKy {
+            width: 680px;
+            margin: auto;
+            border: solid 2px rgb(218, 163, 163);
+            font-size: 22px;
+            background-color: rgb(255, 255, 255);
+            border-radius: 20px;
+            height: fit-content;
+        }
+
+        lable {
+            width: 150px;
+            display: inline-block;
+            color: rgb(230, 202, 46);
+            margin-left: 35px;
+        }
+
+        #frmDangKy .txt {
+            width: 90%;
+            border: solid 1px rgb(247, 146, 14);
+            border-radius: 5px;
+            padding-top: 5px;
+            padding-bottom: 5px;
+            margin-left: 35px;
+            height: fit-content;
+            color: rgb(243, 207, 140);
+        }
+
+        #frmDangKy button {
+            color: white;
+            border: solid rgb(146, 139, 211);
+            border-radius: 20px;
+            width: 150px;
+            height: 40px;
+            font-size: 1em;
+            background-color: rgb(146, 139, 211);
+            margin: auto;
+        }
+
+        #frmDangKy h2 {
+            width: 100%;
+            text-align: center;
+            margin-top: 20px;
+            font-size: 30px;
+            text-transform: uppercase;
+            color: wheat;
+        }
+
+        .nn {
+            margin-left: 30px;
+        }
+
+        #n {
+            margin-left: 30px;
+        }
+
+        #gc {
+            min-height: 80px;
+        }
+
+        #qt {
+            padding: 5px 0 5px 7px;
+            font-size: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <meta charset="utf-8">
+    <form action="xuly.php" id="frmDangKy" method="post">
+        <h2>Đăng ký Thành viên</h2>
+        <lable>Mã Sinh Viên</lable>
+        <p>
+            <input type="text" class="txt" name="masv">
+        </p>
+        <lable>Họ Tên</lable>
+        <p>
+            <input type="text" class="txt" name="ht">
+        </p>
+        <lable>Email</lable>
+        <p>
+            <input type="text" class="txt" name="em">
+        </p>
+        <lable>Giới Tính</lable>
+        <p class="txt">
+            <input type="radio" value="0" name="phai" class="nn">Nam
+            <input type="radio" value="1" name="phai" class="nn">Nữ
+        </p>
+        <lable>Sở thích</lable>
+        <p class="txt">
+            <input type="checkbox" name="st" id="n">Đọc sách
+            <input type="checkbox" name="st" id="n">Du lịch
+            <input type="checkbox" name="st" id="n">Ẩm thực
+            <input type="checkbox" name="st" id="n">Âm nhạc
+            <input type="checkbox" name="st" id="n">Khác
+        </p>
+        <lable>Quốc tịch</lable>
+        <p>
+            <select name="qt" class="txt" id="qt">
+                <option value="0">Chọn quốc tịch</option>
+                <option value="1">Việt Nam</option>
+                <option value="2">USA</option>
+                <option value="4">Khác</option>
+            </select>
+        </p>
+        <lable>Ghi chú</lable>
+        <p>
+            <textarea class="txt" id="gc" name="gc"></textarea>
+        </p>
+        <p>
+            <lable></lable>
+            <button type="submit" id="button">Đăng ký</button>
+            <button type="reset" id="button">Làm lại</button>
+        </p>
+    </form>
+</body>
+
+</html>

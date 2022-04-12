@@ -1,0 +1,192 @@
+<html>
+<title></title>
+
+<head>
+    <meta charset="utf-8">
+    <style>
+        body {
+            background-color: azure;
+        }
+
+        #c {
+            width: 900px;
+            border: 2px solid rgb(97, 62, 62);
+            border-radius: 18px;
+            margin: auto;
+            background-color: rgb(203, 236, 236);
+            height: fit-content;
+        }
+
+        h2 {
+            text-align: center;
+            color: rgb(147, 159, 224);
+            margin-bottom: 10px;
+            margin-top: 8px;
+        }
+
+        #chon1 {
+            text-align: center;
+            width: 90px;
+            margin-left: 400px;
+            background-color: whitesmoke;
+            color: rgb(41, 170, 202);
+            padding: 3px 5px 2px 0
+        }
+
+        table {
+            width: 750px;
+            height: 450px;
+
+            ;
+            height: fit-content;
+            background-color: white;
+            margin-bottom: 40px;
+        }
+
+        th {
+            padding: 7px 0 7px 0;
+            background-color: rgb(200, 206, 241);
+        }
+
+        .n {
+            width: 20px;
+        }
+
+        .sl {
+            width: 50px;
+        }
+
+        .sp {
+            width: 30%;
+        }
+
+        input {
+            width: 23%;
+            text-align: center;
+            padding: 3px;
+            background-color: rgb(226, 239, 245);
+        }
+    </style>
+</head>
+
+<body>
+    <meta charset="utf-8">
+    <div id="c">
+        <h2>BÁN HÀNG</h2>
+        <select name="mucgia" id="chon1" onchange="doigia()">
+            <option value="-1">Mức giá</option>
+            <option value="200">200</option>
+            <option value="400">400</option>
+            <option value="600">600</option>
+            <option value="800">800</option>
+        </select>
+        <hr>
+        <table border="2" align="center" cellspacing='1'>
+            <tr>
+                <th colspan="2">Hàng hóa</th>
+                <th>Đơn giá</th>
+                <th>Số lượng</th>
+                <th>Thành tiền</th>
+            </tr>
+            <tr>
+                <th> <input onclick="tichcheckbox(0)" type="checkbox" name="chon" class="n"></th>
+                <th class="sp">Iphong 9</th>
+                <th name="gia">700</th>
+                <th><input onkeyup="tinhtien(this)" type="text" value="0" class="sl" name="sl" disabled></th>
+                <th name="tt"></th>
+            </tr>
+            <tr>
+                <th><input onclick="tichcheckbox(1)" type="checkbox" name="chon" class="n"></th>
+                <th class="sp">Samsung</th>
+                <th name="gia">400</th>
+                <th><input onkeyup="tinhtien(this)" type="text" value="0" class="sl" name="sl" disabled></th>
+                <th name="tt"></th>
+            </tr>
+            <tr>
+                <th><input onclick="tichcheckbox(2)" type="checkbox" name="chon" class="n"></th>
+                <th class="sp">Nokia</th>
+                <th name="gia">100</th>
+                <th><input onkeyup="tinhtien(this)" type="text" value="0" class="sl" name="sl" disabled></th>
+                <th name="tt"></th>
+            </tr>
+            <tr>
+                <th><input onclick="tichcheckbox(3)" type="checkbox" name="chon" class="n"></th>
+                <th class="sp">Sony Xperia</th>
+                <th name="gia">450</th>
+                <th><input onkeyup="tinhtien(this)" type="text" value="0" class="sl" name="sl" disabled></th>
+                <th name="tt"></th>
+            </tr>
+            <tr>
+                <th><input onclick="tichcheckbox(4)" type="checkbox" name="chon" class="n"></th>
+                <th class="sp">Mortorola</th>
+                <th name="gia">180</th>
+                <th><input onkeyup="tinhtien(this)" type="text" value="0" class="sl" name="sl" disabled></th>
+                <th name="tt"></th>
+            </tr>
+            <tr>
+                <th><input onclick="tichcheckbox(5)" type="checkbox" name="chon" class="n"></th>
+                <th class="sp">Oppo</th>
+                <th name="gia">600</th>
+                <th><input onkeyup="tinhtien(this)" type="text" value="0" class="sl" name="sl" disabled></th>
+                <th name="tt"></th>
+            </tr>
+            <tr>
+                <th><input onclick="tichcheckbox(6)" type="checkbox" name="chon" class="n"></th>
+                <th class="sp">Bphone</th>
+                <th name="gia">90</th>
+                <th><input onkeyup="tinhtien(this)" type="text" value="0" class="sl" name="sl" disabled></th>
+                <th name="tt"></th>
+            </tr>
+            <tr>
+                <th colspan="4">Tổng cộng</th>
+                <th id="tinhtong"></th>
+            </tr>
+        </table>
+    </div>
+</body>
+<script>
+    function doigia() {
+        var arrgia = document.getElementsByName("gia");
+        var obj = document.getElementById("chon1");
+        mucdangchon = obj.value;
+        for (i = 0; i < arrgia.length; i++) {
+            gia = parseFloat(arrgia[i].innerText);
+            if (gia < mucdangchon || mucdangchon == -1) {
+                arrgia[i].parentNode.style.display = ""
+            }
+            else { arrgia[i].parentNode.style.display = "none" }
+        }
+        tong();
+    }
+    function tichcheckbox(i) {
+        var arrSL = document.getElementsByName("sl");
+        arrSL[i].disabled = !arrSL[i].disabled;
+        if (arrSL[i].disabled == true) {
+            arrSL[i].value = 0;
+            arrSL[i].parentNode.nextElementSibling.innerText = "";
+        }tong();
+    }
+    function tinhtien(obj) {
+        var soluong = obj.value;
+        var gia = obj.parentNode.previousElementSibling.innerText;
+        obj.parentNode.nextElementSibling.innerText = soluong * gia;
+        if (obj.parentNode.nextElementSibling.innerText < 0) {
+            obj.parentNode.nextElementSibling.innerText = "không tính được";
+        }
+        if (obj.parentNode.nextElementSibling.innerText == 0) { 
+            obj.parentNode.nextElementSibling.innerText = ""; }
+        tong();
+    }
+    function tong() {
+        tt = 0;
+        var arrthanhtien = document.getElementsByName("tt");
+        for (i = 0; i < arrthanhtien.length; i++) {
+            tien = arrthanhtien[i].innerText;
+            tt += Number(tien);
+        }
+        if(tt==0||tt==null){tt=""}
+        document.getElementById("tinhtong").innerText = tt;
+    }
+</script>
+
+</html>

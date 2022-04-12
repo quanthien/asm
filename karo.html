@@ -1,0 +1,61 @@
+<html>
+<head>
+    <title>Thái Thiên Quân-Ps25081</title>
+    <style>
+        
+body {
+    background: rgb(219, 178, 144);
+} h3 {
+            margin-top: 5px;
+            text-align: center;
+            color: rgb(255, 230, 230);
+            padding-top: 5px;
+            text-transform: uppercase;
+            font-size: 40px;
+            margin-bottom: 10px;
+        }
+        button {
+            width: 150px;
+            height: 150px;
+        }
+    </style>
+    <script>
+        var flag = true;
+        let count = 0;
+        function mark(index) {
+            var button = document.getElementsByTagName("button")[index];
+            button.innerText = flag ? "X" : "O";
+            button.setAttribute('disabled', 'true');
+            button.style.backgroundColor = flag ? "aqua" : "yellow";
+            flag = !flag;
+            count++;
+            if (count == 9) {
+                alert("End game !");
+                location.reload();
+            }
+        }
+    </script>
+</head>
+
+<body style="text-align:center">
+    <h3>GAME KARO</h3>
+    <table align="center">
+        <tr>
+            <td><button onclick="mark(0)"></button></td>
+            <td><button onclick="mark(1)"></button></td>
+            <td><button onclick="mark(2)"></button></td>
+        </tr>
+        <tr>
+            <td><button onclick="mark(3)"></button></td>
+            <td><button onclick="mark(4)"></button></td>
+            <td><button onclick="mark(5)"></button></td>
+        </tr>
+        <tr>
+            <td><button onclick="mark(6)"></button></td>
+            <td><button onclick="mark(7)"></button></td>
+            <td><button onclick="mark(8)"></button></td>
+        </tr>
+    </table>
+</body>
+
+</html>

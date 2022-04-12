@@ -1,0 +1,109 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css">
+    <title>Ps25081-Thái Thiên Quân</title>
+    <script></script>
+    <style>
+        body {
+            background-color: rgb(238, 157, 157);
+        }
+
+        #c {
+            width: 890px;
+            height: 490px;
+            margin: auto;
+            background-color: rgb(224, 195, 195);
+            position: relative;
+            border-radius: 20px;
+            margin-top: 25px;
+        }
+
+        #c h2 {
+            text-align: center;
+            text-transform: capitalize;
+            color: rgb(235, 134, 134);
+            padding-top: 15px;
+        }
+
+        #kq {
+            height: 350px;
+            margin: 15px 50px 15px 50px;
+            border: solid whitesmoke;
+            text-align: center;
+        }
+
+        .dieuhuong i:first-child {
+            position: absolute;
+            top: 50%;
+            left: 70px;
+            font-size: 40px;
+            color: white;
+        }
+
+        .dieuhuong i:last-child {
+            position: absolute;
+            top: 50%;
+            right: 70px;
+            font-size: 40px;
+            color: white;
+        }
+
+        #sohinh {
+            font-size: 15px;
+            padding-top: 10px;
+            color: white;
+            margin-top: 0;
+            padding-bottom: 10px;
+            background-color: black;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="c">
+        <h2>Album ảnh hoa trên đất việt nam</h2>
+        <div id="kq">
+            <img id="hinh" src="image/hoadep0.jpg" align='center' width="100%" height="100%">
+            <div class="dieuhuong">
+                <i class="fa fa-chevron-circle-left" onclick="prev()"></i>
+                <i class="fa fa-chevron-circle-right" onclick="next()"></i>
+            </div>
+            <div id="sohinh" align='center'></div>
+        </div>
+    </div>
+</body>
+<script>
+    var arrhinh = [
+        "image/hoadep1.jpg",
+        "image/hoadep2.jpg",
+        "image/hoadep3.jpg",
+        "image/hoadep4.jpg",
+        "image/hoadep5.jpg",
+        "image/hoadep6.jpg",
+        "image/hoadep7.jpg",
+        "image/hoadep0.jpg",
+    ]
+    var index = 8;
+    function prev() {
+        index--;
+        if (index < 0) { index = arrhinh.length - 1; }
+        var hinh = document.getElementById("hinh");
+        hinh.src = arrhinh[index];
+        if (index == 0) { index = 8 };
+        document.getElementById("sohinh").innerHTML = "" + index + "/8";
+    }
+    function next() {
+        index++;
+        if (index >= arrhinh.length) { index = 0; }
+        var hinh = document.getElementById("hinh");
+        hinh.src = arrhinh[index];
+        if (index == 0) { indexmoi = 8 }
+        else { indexmoi = index }
+        document.getElementById("sohinh").innerHTML = "" + indexmoi + "/8";
+    }
+    setInterval("next()",3500);
+</script>
+
+</html>
